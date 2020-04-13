@@ -1,0 +1,9 @@
+
+h2 Create User
+	form(action="/users/create", method="POST")
+		label
+		| New User
+		input(name='username', type='text', maxlength='100', oninvalid="this.setCustomValidity('You must enter your dream here')",onchange="this.setCustomValidity('')", required='', placeholder='Username')
+		input(name='password', type='password', maxlength='100', oninvalid="this.setCustomValidity('You must enter your color here')", onchange="this.setCustomValidity('')", required='', placeholder='Password!')
+		button Add User
+	
