@@ -1,9 +1,14 @@
+extends ../layouts/common
+block content
 
-h2 Create User
+	h2 Create User
+	if errors
+		each error in errors
+			.alert.alert-danger= error
 	form(action="/users/create", method="POST")
 		label
 		| New User
-		input(name='username', type='text', maxlength='100', oninvalid="this.setCustomValidity('You must enter your dream here')",onchange="this.setCustomValidity('')", required='', placeholder='Username')
-		input(name='password', type='password', maxlength='100', oninvalid="this.setCustomValidity('You must enter your color here')", onchange="this.setCustomValidity('')", required='', placeholder='Password!')
+		input(name='username', type='text', maxlength='100', value=values ? values.username : "")
+		input(name='password', type='password', maxlength='100', value=values ? values.password : "")
 		button Add User
 	

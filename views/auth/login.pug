@@ -7,10 +7,13 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1')
   link#favicon(rel='icon', href='/images/favicon-96x96.png', type='image/png')
 main
+  if errors
+    each error in errors
+      .alert.alert-danger= error
   h2 Oh hi,
   p Login: 
-  form(action="/auth/login", method="POST")
+  form(method="POST")
     label
-      input(name='username', type='text', maxlength='100', oninvalid="this.setCustomValidity('You must enter your username here')", onchange="this.setCustomValidity('')", required='', placeholder='Username')
-      input(name='password', type='password', maxlength='100', oninvalid="this.setCustomValidity('You must enter your password here')", onchange="this.setCustomValidity('')", required='', placeholder='Password!')
+      input(name='username', type='text', maxlength='100', value=values ? values.username : "")
+      input(name='password', type='password', maxlength='100', value=values ? values.password : "")
     button#submit-dream(type='submit') Login

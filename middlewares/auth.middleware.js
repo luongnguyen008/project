@@ -2,7 +2,6 @@ var mysql = require('mysql')
 var con = require('../mysql-connection')
 
 module.exports.requireAuth = function (req, res, next){
-	console.log(typeof req.cookies);
 	if(!req.cookies.userId){
 		res.redirect('/auth/login');
 		return;
